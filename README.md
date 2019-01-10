@@ -1,9 +1,6 @@
 # WebdollarWalletGenerator
 
-Simple script to generate a Webdollar wallet. Run this on your server then access the API to generate a wallet. 
-
-### TO DO
-Generate wallet from mnemonic
+Simple script to generate a Webdollar random wallet or from mnemonic. Run this on your server then access the API to generate. 
 
 ### Installation
 
