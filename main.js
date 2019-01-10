@@ -3,6 +3,7 @@ require('./consts.js');
 let crypto = require('crypto');
 let ed25519 = require('ed25519');
 let http = require('http');
+let url = require('url');
 
 function SHA256(bytes){
 
@@ -95,8 +96,8 @@ function genwallet(WebdSeed){
 }
 
 http.createServer(function(req,res){
-    var q_string = req.url;
-    switch(q_string) {
+    var pathName= url.parse(req.url).pathname;
+    switch(pathName) {
         case '/':
             res.writeHead(404, { 'Content-Type': 'text/plain' });
             res.end('Not Found');
@@ -108,14 +109,27 @@ http.createServer(function(req,res){
             res.write(wallet);
             res.end();
             break;
-        // case '/wallet/mnemonic':
-            // res.writeHead(200, { 'Content-Type': 'text/plain' });
-            // var mnemonic = 'I like the cute monkeys!';
-            // var Seed = crypto.createHash('sha256').update(mnemonic).digest();
-            // var wallet = genwallet(Seed);
-            // res.write(wallet);
-            // res.end();
-            // break;
+        case '/wallet/mnemonic':
+            var query = url.parse(req.url,true).query;
+            res.writeHead(200, { 'Content-Type': 'text/plain' });
+            if(Object.keys(query).length){
+                if(query.mnemonic){
+                    var mnemonic = decodeURI(query.mnemonic);
+                    var Seed = crypto.createHash('sha256').update(mnemonic).digest();
+                    var wallet = genwallet(Seed);
+                    res.write(wallet);
+                    res.end();
+                    break;
+                } else {
+                    res.write('No mnemonic provided');
+                    res.end();
+                    break;
+                }
+            } else {
+                res.write('No mnemonic provided');
+                res.end();
+                break;
+            }
         default:
             res.writeHead(404, { 'Content-Type': 'text/plain' });
             res.end('Not Found');
