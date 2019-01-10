@@ -3,7 +3,6 @@ require('./consts.js');
 let crypto = require('crypto');
 let ed25519 = require('ed25519');
 let http = require('http');
-var url = require('url');
 
 function SHA256(bytes){
 
