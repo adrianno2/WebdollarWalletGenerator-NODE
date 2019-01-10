@@ -108,6 +108,14 @@ http.createServer(function(req,res){
             res.write(wallet);
             res.end();
             break;
+        // case '/wallet/mnemonic':
+            // res.writeHead(200, { 'Content-Type': 'text/plain' });
+            // var mnemonic = 'I like the cute monkeys!';
+            // var Seed = crypto.createHash('sha256').update(mnemonic).digest();
+            // var wallet = genwallet(Seed);
+            // res.write(wallet);
+            // res.end();
+            // break;
         default:
             res.writeHead(404, { 'Content-Type': 'text/plain' });
             res.end('Not Found');
