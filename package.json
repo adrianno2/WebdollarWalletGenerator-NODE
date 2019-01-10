@@ -1,0 +1,8 @@
+{
+    "name": "WebdollarWalletGenerator",
+    "version": "1.0.0",
+    "author": "Adrian G.",
+    "dependencies": {
+        "ed25519": "0.0.4"
+    }
+}
