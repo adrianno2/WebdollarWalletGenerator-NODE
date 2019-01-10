@@ -36,7 +36,7 @@ screen node main.js
 
 ### Usage
 
-PHP:
+PHP random wallet:
 ```sh
 <?php
     $wallet = file_get_contents('http://127.0.0.1:3333/wallet/simple');
@@ -47,9 +47,32 @@ PHP:
     echo $wallet->privateKey;
 ?>
 ```
-Python:
+
+PHP Wallet from mnemonic:
+```sh
+<?php
+    $mnemonic = "obvious clerk essence hurry jar love recipe tenant belt sunset tiny reduce";
+    $wallet = file_get_contents('http://127.0.0.1:3333/wallet/mnemonic?mnemonic=' . urlencode($mnemonic));
+    // save the wallet as is or decode it:
+    $wallet = json_decode($wallet);
+    echo $wallet->address;
+    echo $wallet->publicKey;
+    echo $wallet->privateKey;
+?>
+```
+
+Python random wallet:
 ```sh
 import requests
 response = requests.get('http://127.0.0.1:3333/wallet/simple')
+wallet = response.text
+```
+
+Python Wallet from mnemonic:
+```sh
+import requests
+mnemonic = 'obvious clerk essence hurry jar love recipe tenant belt sunset tiny reduce'
+payload = {'mnemonic': mnemonic}
+response = requests.get('http://127.0.0.1:3333/wallet/mnemonic', params=payload)
 wallet = response.text
 ```
