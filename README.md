@@ -2,6 +2,9 @@
 
 Simple script to generate a Webdollar wallet. Run this on your server then access the API to generate a wallet. 
 
+### TO DO
+Generate wallet from mnemonic
+
 ### Installation
 
 This script requires [Node.js](https://nodejs.org/) v8.2.1 to run.
