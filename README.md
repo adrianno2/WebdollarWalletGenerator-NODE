@@ -7,7 +7,7 @@ Simple script to generate a Webdollar random wallet or from mnemonic. Run this o
 This script requires [Node.js](https://nodejs.org/) v8.2.1 to run.
 
 ```sh
-git clone https://github.com/adrianno2/WebdollarWalletGenerator.git
+git clone https://github.com/adrianno2/WebdollarWalletGenerator-NODE.git
 cd WebdollarWalletGenerator
 npm install
 ```
