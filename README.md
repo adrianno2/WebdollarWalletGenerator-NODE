@@ -8,7 +8,7 @@ This script requires [Node.js](https://nodejs.org/) v8.2.1 to run.
 
 ```sh
 git clone https://github.com/adrianno2/WebdollarWalletGenerator-NODE.git
-cd WebdollarWalletGenerator
+cd WebdollarWalletGenerator-NODE
 npm install
 ```
 
@@ -34,7 +34,7 @@ screen node main.js
 ### Usage
 
 PHP random wallet:
-```sh
+```php
 <?php
     $wallet = file_get_contents('http://127.0.0.1:3333/wallet/simple');
     // save the wallet as is or decode it:
@@ -46,7 +46,7 @@ PHP random wallet:
 ```
 
 PHP Wallet from mnemonic:
-```sh
+```php
 <?php
     $mnemonic = "obvious clerk essence hurry jar love recipe tenant belt sunset tiny reduce";
     $wallet = file_get_contents('http://127.0.0.1:3333/wallet/mnemonic?mnemonic=' . urlencode($mnemonic));
@@ -59,14 +59,14 @@ PHP Wallet from mnemonic:
 ```
 
 Python random wallet:
-```sh
+```python
 import requests
 response = requests.get('http://127.0.0.1:3333/wallet/simple')
 wallet = response.text
 ```
 
 Python Wallet from mnemonic:
-```sh
+```python
 import requests
 mnemonic = 'obvious clerk essence hurry jar love recipe tenant belt sunset tiny reduce'
 payload = {'mnemonic': mnemonic}
